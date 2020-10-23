@@ -1,0 +1,6 @@
+---
+swagger: "2.0"
+info:
+  description: "Api for task"
+  version: "1.0.0"
+  title: "api.test"
