@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
@@ -12,8 +13,8 @@ import javax.validation.constraints.Pattern;
 @Getter
 @ApiModel(description = "input model card")
 public class CardDto {
-    @NotEmpty
     @ApiModelProperty(name = "clientId", value = "client id")
+    @Min(value = 1)
     private Long clientId;
 
     @NotEmpty

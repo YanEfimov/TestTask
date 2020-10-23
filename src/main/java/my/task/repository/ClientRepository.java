@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface ClientRepository extends PagingAndSortingRepository<Client, Long> {
 
-    @Query("SELECT client.telephone FROM Client client, Card card WHERE client.id=card.id AND card.type=:typeCard AND card.currency=:currency")
+    @Query("SELECT DISTINCT client.telephone " +
+            "FROM Client client, Card card " +
+            "WHERE client.id=card.client.id AND card.type=:typeCard AND card.currency=:currency")
     List<String> getTelephone(@Param("typeCard") String typeCard, @Param("currency") String currency, Pageable pageable);
 }

@@ -11,11 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "cards")
+@Table(name = "cards", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "number")
+})
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
